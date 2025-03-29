@@ -203,7 +203,7 @@ footer p {
 /* Responsive Design */
 @media screen and (max-width: 768px) {
   .nav-links {
-    position: absolute;
+    position: fixed;
     right: 0;
     height: 92vh;
     top: 8vh;
@@ -219,8 +219,13 @@ footer p {
   }
   
   .nav-links li {
-    opacity: 0;
+    opacity: 1;
     margin: 1.5rem 0;
+    transform: translateX(0);
+  }
+  
+  .nav-links a {
+    font-size: 1.2rem;
   }
   
   .burger {
@@ -229,6 +234,10 @@ footer p {
   
   .nav-active {
     transform: translateX(0%);
+  }
+  
+  .nav-links li {
+    animation: navLinkFade 0.5s ease forwards 0.3s;
   }
   
   @keyframes navLinkFade {
