@@ -8,20 +8,37 @@
   </head>
   <body>
     <div class="hero">
+      <video id="lafrinoVideo" autoplay muted loop playsinline>
+        <source src="assets/video.mp4" type="video/mp4" />
+        Dein Browser unterstützt kein Video.
+      </video>
       <div class="overlay"></div>
-      <div class="video-wrapper">
-        <iframe
-          src="https://www.youtube.com/embed/BmADRM98Iog?autoplay=1&mute=1&controls=0&loop=1&playlist=BmADRM98Iog"
-          title="We.Lafrino Trailer"
-          frameborder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
       <div class="content">
         <h1>We.Lafrino</h1>
         <p>Die legendärste Party des Sommers</p>
       </div>
     </div>
+
+    <script>
+      const video = document.getElementById("lafrinoVideo");
+
+      // Funktion, die Ton aktiviert
+      function enableSound() {
+        video.muted = false;
+        video.play().catch((err) => {
+          console.warn("Ton konnte nicht aktiviert werden:", err);
+        });
+
+        // Nur beim ersten Interaktionsversuch
+        document.removeEventListener("click", enableSound);
+        document.removeEventListener("touchstart", enableSound);
+        document.removeEventListener("keydown", enableSound);
+      }
+
+      // Sobald der User irgendwas macht – Ton aktivieren
+      document.addEventListener("click", enableSound);
+      document.addEventListener("touchstart", enableSound);
+      document.addEventListener("keydown", enableSound);
+    </script>
   </body>
 </html>
