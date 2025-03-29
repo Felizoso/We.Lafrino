@@ -205,32 +205,44 @@ footer p {
   .nav-links {
     position: fixed;
     right: 0;
-    height: 92vh;
-    top: 8vh;
+    height: auto;
+    top: 60px;
     background-color: #0a1626;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%;
+    width: 200px;
     transform: translateX(100%);
-    transition: transform 0.5s ease-in;
-    padding-top: 2rem;
+    transition: transform 0.3s ease-in;
+    padding: 1rem 0;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 0 8px;
   }
   
   .nav-links li {
     opacity: 1;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
     transform: translateX(0);
+    width: 100%;
+    text-align: center;
   }
   
   .nav-links a {
-    font-size: 1rem;
+    font-size: 0.9rem;
     letter-spacing: 1px;
+    padding: 0.5rem 1rem;
+    display: block;
+    width: 100%;
+    transition: background-color 0.3s;
+  }
+
+  .nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
   }
   
   .burger {
     display: block;
+    padding: 0.5rem;
   }
   
   .nav-active {
@@ -238,13 +250,13 @@ footer p {
   }
   
   .nav-links li {
-    animation: navLinkFade 0.5s ease forwards 0.3s;
+    animation: navLinkFade 0.3s ease forwards 0.2s;
   }
   
   @keyframes navLinkFade {
     from {
       opacity: 0;
-      transform: translateX(50px);
+      transform: translateX(20px);
     }
     to {
       opacity: 1;
